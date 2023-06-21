@@ -1,0 +1,33 @@
+﻿@using MobilyaUstasi.Models
+@model List<SliderModel>
+
+@{
+    ViewData["Title"] = "Admin Page";
+}
+
+<div class="text-center">
+    <h1 class="display-1">Sliderlar</h1>
+</div>
+<div class="container">
+    <a class="btn btn-success float-end mr-0" asp-action="SaveSlider">Ekle</a>
+    <table class="table">
+        <tr>
+            <th>Slider Başlık</th>
+            <th>Slider İçerik</th>
+            <th>Slider Link</th>
+            <th>Slider İşlemleri</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.title</td>
+                <td>@item.content</td>
+                <td>@item.url</td>
+                <td>
+                    <a class="btn btn-primary" asp-action="UpdateSlider" asp-route-id="@item.id">Güncelle</a>
+                    <a class="btn btn-danger" asp-action="DeleteSlider" asp-route-id="@item.id">Sil</a>
+                </td>
+            </tr>
+        }
+    </table>
+</div>

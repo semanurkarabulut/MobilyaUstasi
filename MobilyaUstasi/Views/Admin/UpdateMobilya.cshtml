@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Admin Page";
+}
+@model MobilyaModel
+<div class="text-center">
+    <h1 class="display-1">Servis Güncelle</h1>
+
+</div>
+<form asp-action="UpdateMobilya" method="post" enctype='multipart/form-data'>
+    <div class="row">
+           <div class="col-6 p-2">
+            <label>Servis Başlık</label>
+            <input asp-for="ServiceName" class="form-control" />
+        </div>
+        <div class="col-6 p-2">
+            <label>Servis Açıklama</label>
+            <input asp-for="Description" class="form-control" />
+        </div>
+        <div class="col-6 p-2">
+            <label>Servis Fiyat</label>
+            <input asp-for="Price" class="form-control" />
+        </div>
+        <div class="col-6 p-2">
+            <label>Servis Resim</label>
+            <input asp-for="file" class="form-control" type="file" />
+        </div>
+        <input type="hidden" asp-for="Image"/>
+    </div>
+    <button class="btn btn-primary mt-3">Kaydet</button>
+</form>
